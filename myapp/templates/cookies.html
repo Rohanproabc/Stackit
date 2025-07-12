@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Settings - StackIt Q&A Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="{% url 'home' %}" class="brand-link">StackIt</a></h1>
+                <span class="tagline">A Minimal Q&A Forum Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-link active">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-primary" id="askQuestionBtn">Ask Question</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-item" id="signUpBtn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </div>
+                            <div class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>Cookie Settings</h1>
+                <p class="page-subtitle">Manage your cookie preferences</p>
+            </div>
+
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>About Cookies</h2>
+                    <p>Cookies are small text files that are placed on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and analyzing how you use our platform.</p>
+                </div>
+
+                <div class="cookie-settings-container">
+                    <div class="cookie-category">
+                        <div class="cookie-header">
+                            <div class="cookie-info">
+                                <h3>Essential Cookies</h3>
+                                <p>These cookies are necessary for the website to function and cannot be switched off.</p>
+                            </div>
+                            <div class="cookie-toggle">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="essential-cookies" checked disabled>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-status">Always Active</span>
+                            </div>
+                        </div>
+                        <div class="cookie-details">
+                            <h4>What these cookies do:</h4>
+                            <ul class="cookie-list">
+                                <li>Remember your login status</li>
+                                <li>Maintain your session security</li>
+                                <li>Enable core website functionality</li>
+                                <li>Remember your cookie preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-header">
+                            <div class="cookie-info">
+                                <h3>Analytics Cookies</h3>
+                                <p>These cookies help us understand how visitors interact with our website.</p>
+                            </div>
+                            <div class="cookie-toggle">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="analytics-cookies" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-status">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="cookie-details">
+                            <h4>What these cookies do:</h4>
+                            <ul class="cookie-list">
+                                <li>Track page views and user interactions</li>
+                                <li>Measure website performance</li>
+                                <li>Identify popular content and features</li>
+                                <li>Help us improve the user experience</li>
+                            </ul>
+                            <div class="cookie-providers">
+                                <h4>Third-party providers:</h4>
+                                <p>Google Analytics, Hotjar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-header">
+                            <div class="cookie-info">
+                                <h3>Preference Cookies</h3>
+                                <p>These cookies remember your settings and preferences to personalize your experience.</p>
+                            </div>
+                            <div class="cookie-toggle">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="preference-cookies" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-status">Enabled</span>
+                            </div>
+                        </div>
+                        <div class="cookie-details">
+                            <h4>What these cookies do:</h4>
+                            <ul class="cookie-list">
+                                <li>Remember your language preferences</li>
+                                <li>Save your theme and display settings</li>
+                                <li>Remember your notification preferences</li>
+                                <li>Store your filter and sorting preferences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="cookie-category">
+                        <div class="cookie-header">
+                            <div class="cookie-info">
+                                <h3>Marketing Cookies</h3>
+                                <p>These cookies are used to deliver relevant advertisements and track ad performance.</p>
+                            </div>
+                            <div class="cookie-toggle">
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="marketing-cookies">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                                <span class="toggle-status">Disabled</span>
+                            </div>
+                        </div>
+                        <div class="cookie-details">
+                            <h4>What these cookies do:</h4>
+                            <ul class="cookie-list">
+                                <li>Show you relevant advertisements</li>
+                                <li>Prevent the same ad from being shown repeatedly</li>
+                                <li>Measure the effectiveness of advertising campaigns</li>
+                                <li>Track conversions and user engagement</li>
+                            </ul>
+                            <div class="cookie-providers">
+                                <h4>Third-party providers:</h4>
+                                <p>Google Ads, Facebook Pixel, Twitter Analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-actions">
+                    <button class="btn-primary" id="save-cookie-settings">Save Settings</button>
+                    <button class="btn-secondary" id="accept-all-cookies">Accept All</button>
+                    <button class="btn-secondary" id="reject-all-cookies">Reject All</button>
+                </div>
+
+                <div class="legal-section">
+                    <h2>Managing Cookies in Your Browser</h2>
+                    <p>You can also manage cookies directly through your browser settings. Here's how to do it in popular browsers:</p>
+
+                    <div class="browser-instructions">
+                        <div class="browser-item">
+                            <h4><i class="fab fa-chrome"></i> Google Chrome</h4>
+                            <p>Settings → Privacy and security → Cookies and other site data</p>
+                        </div>
+                        <div class="browser-item">
+                            <h4><i class="fab fa-firefox"></i> Mozilla Firefox</h4>
+                            <p>Settings → Privacy & Security → Cookies and Site Data</p>
+                        </div>
+                        <div class="browser-item">
+                            <h4><i class="fab fa-safari"></i> Safari</h4>
+                            <p>Preferences → Privacy → Manage Website Data</p>
+                        </div>
+                        <div class="browser-item">
+                            <h4><i class="fab fa-edge"></i> Microsoft Edge</h4>
+                            <p>Settings → Cookies and site permissions → Cookies and site data</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="legal-section">
+                    <h2>Cookie Retention</h2>
+                    <p>Different types of cookies are stored for different periods:</p>
+                    <ul class="legal-list">
+                        <li><strong>Session cookies:</strong> Deleted when you close your browser</li>
+                        <li><strong>Persistent cookies:</strong> Stored for a specific period (typically 30 days to 2 years)</li>
+                        <li><strong>Essential cookies:</strong> Stored until you log out or clear your browser data</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>Contact Us</h2>
+                    <p>If you have any questions about our use of cookies, please contact us:</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> privacy@stackit.com</p>
+                        <p><strong>Subject:</strong> Cookie Policy Inquiry</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer style="background: #f9f9f9; padding: 3rem 2rem; border-top: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    
+    <!-- Left: Logo + Social -->
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡ StackIt</h2>
+      <p style="color: #666; margin-bottom: 1rem;">Simplifying Q&A for everyone.</p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+        
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Legal</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 2rem; color: #aaa; font-size: 0.85rem;">
+    © 2025 StackIt. All rights reserved.
+  </div>
+</footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        // Cookie Settings Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update toggle status text
+            function updateToggleStatus(checkbox, statusElement) {
+                statusElement.textContent = checkbox.checked ? 'Enabled' : 'Disabled';
+            }
+
+            // Cookie toggle event listeners
+            const cookieToggles = document.querySelectorAll('.cookie-toggle input[type="checkbox"]:not([disabled])');
+            cookieToggles.forEach(toggle => {
+                const statusElement = toggle.closest('.cookie-toggle').querySelector('.toggle-status');
+
+                toggle.addEventListener('change', function() {
+                    updateToggleStatus(this, statusElement);
+                });
+            });
+
+            // Save settings button
+            document.getElementById('save-cookie-settings').addEventListener('click', function() {
+                const settings = {
+                    essential: document.getElementById('essential-cookies').checked,
+                    analytics: document.getElementById('analytics-cookies').checked,
+                    preference: document.getElementById('preference-cookies').checked,
+                    marketing: document.getElementById('marketing-cookies').checked
+                };
+
+                localStorage.setItem('cookieSettings', JSON.stringify(settings));
+                alert('Cookie settings saved successfully!');
+            });
+
+            // Accept all cookies
+            document.getElementById('accept-all-cookies').addEventListener('click', function() {
+                document.getElementById('analytics-cookies').checked = true;
+                document.getElementById('preference-cookies').checked = true;
+                document.getElementById('marketing-cookies').checked = true;
+
+                // Update status text
+                document.querySelectorAll('.toggle-status').forEach((status, index) => {
+                    if (index > 0) status.textContent = 'Enabled';
+                });
+
+                document.getElementById('save-cookie-settings').click();
+            });
+
+            // Reject all cookies
+            document.getElementById('reject-all-cookies').addEventListener('click', function() {
+                document.getElementById('analytics-cookies').checked = false;
+                document.getElementById('preference-cookies').checked = false;
+                document.getElementById('marketing-cookies').checked = false;
+
+                // Update status text
+                document.querySelectorAll('.toggle-status').forEach((status, index) => {
+                    if (index > 0) status.textContent = 'Disabled';
+                });
+
+                document.getElementById('save-cookie-settings').click();
+            });
+
+            // Load saved settings
+            const savedSettings = localStorage.getItem('cookieSettings');
+            if (savedSettings) {
+                const settings = JSON.parse(savedSettings);
+                document.getElementById('analytics-cookies').checked = settings.analytics;
+                document.getElementById('preference-cookies').checked = settings.preference;
+                document.getElementById('marketing-cookies').checked = settings.marketing;
+
+                // Update status text
+                cookieToggles.forEach(toggle => {
+                    const statusElement = toggle.closest('.cookie-toggle').querySelector('.toggle-status');
+                    updateToggleStatus(toggle, statusElement);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

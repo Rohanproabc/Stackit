@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - StackIt Q&A Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="{% url 'home' %}" class="brand-link">StackIt</a></h1>
+                <span class="tagline">A Minimal Q&A Forum Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-link active">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-primary" id="askQuestionBtn">Ask Question</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-item" id="signUpBtn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </div>
+                            <div class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>Privacy Policy</h1>
+                <p class="page-subtitle">Last updated: July 12, 2025</p>
+            </div>
+
+            <div class="legal-content">
+                <div class="legal-section">
+                    <h2>1. Introduction</h2>
+                    <p>StackIt ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our question and answer platform.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>2. Information We Collect</h2>
+                    <h3>2.1 Personal Information</h3>
+                    <p>We collect personal information that you voluntarily provide to us when you:</p>
+                    <ul class="legal-list">
+                        <li>Register for an account</li>
+                        <li>Post questions or answers</li>
+                        <li>Contact us for support</li>
+                        <li>Subscribe to our newsletter</li>
+                    </ul>
+                    <p>This information may include:</p>
+                    <ul class="legal-list">
+                        <li>Name and email address</li>
+                        <li>Username and password</li>
+                        <li>Profile information</li>
+                        <li>Content you post on the platform</li>
+                    </ul>
+
+                    <h3>2.2 Automatically Collected Information</h3>
+                    <p>We automatically collect certain information when you visit our platform:</p>
+                    <ul class="legal-list">
+                        <li>IP address and location data</li>
+                        <li>Browser type and version</li>
+                        <li>Device information</li>
+                        <li>Usage patterns and preferences</li>
+                        <li>Cookies and similar tracking technologies</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>3. How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul class="legal-list">
+                        <li>Provide, operate, and maintain our platform</li>
+                        <li>Improve and personalize your experience</li>
+                        <li>Process your transactions and manage your account</li>
+                        <li>Send you notifications and updates</li>
+                        <li>Respond to your comments and questions</li>
+                        <li>Analyze usage patterns to improve our services</li>
+                        <li>Detect and prevent fraud and abuse</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>4. Information Sharing and Disclosure</h2>
+                    <h3>4.1 Public Information</h3>
+                    <p>Please note that questions, answers, and other content you post on StackIt are publicly visible to all users of the platform.</p>
+
+                    <h3>4.2 Third-Party Sharing</h3>
+                    <p>We do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:</p>
+                    <ul class="legal-list">
+                        <li>With your explicit consent</li>
+                        <li>To service providers who assist us in operating our platform</li>
+                        <li>To comply with legal requirements or court orders</li>
+                        <li>To protect our rights, property, or safety</li>
+                        <li>In connection with a business transfer or merger</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>5. Data Security</h2>
+                    <p>We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.</p>
+
+                    <div class="security-measures">
+                        <h3>Our security measures include:</h3>
+                        <ul class="legal-list">
+                            <li>Encryption of data in transit and at rest</li>
+                            <li>Regular security audits and assessments</li>
+                            <li>Access controls and authentication systems</li>
+                            <li>Employee training on data protection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="legal-section">
+                    <h2>6. Cookies and Tracking Technologies</h2>
+                    <p>We use cookies and similar tracking technologies to enhance your experience on our platform. For detailed information about our cookie practices, please visit our <a href="{% url 'cookies' %}" class="legal-link">Cookie Settings</a> page.</p>
+
+                    <h3>Types of cookies we use:</h3>
+                    <ul class="legal-list">
+                        <li><strong>Essential cookies:</strong> Required for basic platform functionality</li>
+                        <li><strong>Analytics cookies:</strong> Help us understand how users interact with our platform</li>
+                        <li><strong>Preference cookies:</strong> Remember your settings and preferences</li>
+                        <li><strong>Marketing cookies:</strong> Used to deliver relevant advertisements</li>
+                    </ul>
+                </div>
+
+                <div class="legal-section">
+                    <h2>7. Your Privacy Rights</h2>
+                    <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+                    <ul class="legal-list">
+                        <li><strong>Access:</strong> Request a copy of your personal information</li>
+                        <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+                        <li><strong>Deletion:</strong> Request deletion of your personal information</li>
+                        <li><strong>Portability:</strong> Request transfer of your data to another service</li>
+                        <li><strong>Objection:</strong> Object to certain processing of your information</li>
+                        <li><strong>Restriction:</strong> Request limitation of processing</li>
+                    </ul>
+
+                    <p>To exercise these rights, please contact us at <strong>privacy@stackit.com</strong>.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>8. Data Retention</h2>
+                    <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required by law. When we no longer need your information, we will securely delete or anonymize it.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>9. Children's Privacy</h2>
+                    <p>Our platform is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>10. International Data Transfers</h2>
+                    <p>Your information may be transferred to and processed in countries other than your own. We ensure that such transfers are conducted in accordance with applicable data protection laws and with appropriate safeguards in place.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>11. Changes to This Privacy Policy</h2>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+                </div>
+
+                <div class="legal-section">
+                    <h2>12. Contact Us</h2>
+                    <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> privacy@stackit.com</p>
+                        <p><strong>Address:</strong> StackIt Privacy Team</p>
+                        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer style="background: #f9f9f9; padding: 3rem 2rem; border-top: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    
+    <!-- Left: Logo + Social -->
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡ StackIt</h2>
+      <p style="color: #666; margin-bottom: 1rem;">Simplifying Q&A for everyone.</p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+        
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Legal</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 2rem; color: #aaa; font-size: 0.85rem;">
+    © 2025 StackIt. All rights reserved.
+  </div>
+</footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

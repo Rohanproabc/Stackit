@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackIt - Q&A Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="{% url 'home' %}" class="brand-link">StackIt</a></h1>
+                <span class="tagline">A Minimal Q&A Forum Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-link active">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-primary" id="askQuestionBtn">Ask Question</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-item" id="signUpBtn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </div>
+                            <div class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Question List -->
+        <section class="questions-section">
+            <div class="section-header">
+                <h2>Recent Questions</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Unanswered</button>
+                    <button class="filter-btn">Popular</button>
+                </div>
+            </div>
+
+            <div class="questions-list" id="questionsList">
+                <!-- Questions will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Question Detail Modal -->
+        <div class="modal" id="questionModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="questionTitle"></h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="question-content">
+                        <div class="question-meta">
+                            <span class="author">Asked by <strong id="questionAuthor"></strong></span>
+                            <span class="timestamp" id="questionTime"></span>
+                        </div>
+                        <div class="question-tags" id="questionTags"></div>
+                        <div class="question-description" id="questionDescription"></div>
+                        <div class="question-actions">
+                            <button class="vote-btn upvote" data-type="up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span class="vote-count">5</span>
+                            </button>
+                            <button class="vote-btn downvote" data-type="down">
+                                <i class="fas fa-arrow-down"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Answers Section -->
+                    <div class="answers-section">
+                        <h4>Answers</h4>
+                        <div class="answers-list" id="answersList"></div>
+                        
+                        <!-- Answer Form -->
+                        <div class="answer-form">
+                            <h5>Your Answer</h5>
+                            <div class="rich-editor" id="answerEditor">
+                                <div class="editor-toolbar">
+                                    <button class="editor-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                                    <button class="editor-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                                    <button class="editor-btn" data-command="strikethrough"><i class="fas fa-strikethrough"></i></button>
+                                    <button class="editor-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                                    <button class="editor-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                                    <button class="editor-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                                    <button class="editor-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                                </div>
+                                <div class="editor-content" contenteditable="true" placeholder="Write your answer here..."></div>
+                            </div>
+                            <button class="btn-primary submit-answer">Post Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ask Question Modal -->
+        <div class="modal" id="askQuestionModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Ask a Question</h3>
+                    <button class="close-btn" id="closeAskModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="question-form" id="questionForm">
+                        <div class="form-group">
+                            <label for="questionTitleInput">Title</label>
+                            <input type="text" id="questionTitleInput" placeholder="Short and descriptive" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="questionDescriptionInput">Description</label>
+                            <div class="rich-editor" id="questionEditor">
+                                <div class="editor-toolbar">
+                                    <button type="button" class="editor-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                                    <button type="button" class="editor-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                                    <button type="button" class="editor-btn" data-command="strikethrough"><i class="fas fa-strikethrough"></i></button>
+                                    <button type="button" class="editor-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
+                                    <button type="button" class="editor-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
+                                    <button type="button" class="editor-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                                    <button type="button" class="editor-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                                </div>
+                                <div class="editor-content" contenteditable="true" placeholder="Provide detailed description of your question..."></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="questionTagsInput">Tags</label>
+                            <input type="text" id="questionTagsInput" placeholder="e.g., React, JWT (comma-separated)" required>
+                            <small>Multi-select input for relevant tags</small>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Post Question</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Modal -->
+        <div class="modal" id="signUpModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Sign Up</h3>
+                    <button class="close-btn" id="closeSignUpModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="auth-form" id="signUpForm">
+                        <div class="form-group">
+                            <label for="signUpName">Full Name</label>
+                            <input type="text" id="signUpName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpEmail">Email</label>
+                            <input type="email" id="signUpEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpPassword">Password</label>
+                            <input type="password" id="signUpPassword" placeholder="Create a password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signUpConfirmPassword">Confirm Password</label>
+                            <input type="password" id="signUpConfirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                        <button type="submit" class="btn-primary">Create Account</button>
+                        <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Modal -->
+        <div class="modal" id="loginModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Login</h3>
+                    <button class="close-btn" id="closeLoginModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn-primary">Login</button>
+                        <p class="auth-switch">Don't have an account? <a href="#" id="switchToSignUp">Sign up here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="notification-dropdown" id="notificationDropdown">
+            <div class="notification-header">
+                <h4>Notifications</h4>
+            </div>
+            <div class="notification-list">
+                <div class="notification-item">
+                    <i class="fas fa-comment"></i>
+                    <div class="notification-content">
+                        <p>Someone answered your question about React hooks</p>
+                        <span class="notification-time">2 hours ago</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <i class="fas fa-at"></i>
+                    <div class="notification-content">
+                        <p>@john mentioned you in a comment</p>
+                        <span class="notification-time">1 day ago</span>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <i class="fas fa-reply"></i>
+                    <div class="notification-content">
+                        <p>Someone commented on your answer</p>
+                        <span class="notification-time">3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer style="background: #f9f9f9; padding: 3rem 2rem; border-top: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    
+    <!-- Left: Logo + Social -->
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡ StackIt</h2>
+      <p style="color: #666; margin-bottom: 1rem;">Simplifying Q&A for everyone.</p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+        
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Legal</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 2rem; color: #aaa; font-size: 0.85rem;">
+    © 2025 StackIt. All rights reserved.
+  </div>
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

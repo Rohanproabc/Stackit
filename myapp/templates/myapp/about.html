@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - StackIt Q&A Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="{% url 'home' %}" class="brand-link">StackIt</a></h1>
+                <span class="tagline">A Minimal Q&A Forum Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-link active">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-primary" id="askQuestionBtn">Ask Question</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-item" id="signUpBtn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </div>
+                            <div class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>About StackIt</h1>
+                <p class="page-subtitle">Learn more about our mission and platform</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Our Mission</h2>
+                <p>StackIt is a minimal, user-friendly Q&A platform designed to help developers and tech enthusiasts share knowledge, solve problems, and build a stronger community together. We believe that everyone has something valuable to contribute, and our platform makes it easy to ask questions, provide answers, and learn from others.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>What Makes StackIt Special</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Easy Question Posting</h3>
+                        <p>Ask questions with our intuitive rich text editor, complete with formatting options, code syntax highlighting, and image support.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Driven</h3>
+                        <p>Our voting system ensures the best answers rise to the top, while our tagging system helps organize content by topic.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Access StackIt from any device with our responsive design that works seamlessly on desktop, tablet, and mobile.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Real-time Notifications</h3>
+                        <p>Stay updated with instant notifications when someone answers your questions or mentions you in discussions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>How It Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Ask a Question</h3>
+                            <p>Post your question with a clear title, detailed description, and relevant tags to help others understand what you need.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Get Answers</h3>
+                            <p>Community members will provide answers, explanations, and solutions to help solve your problem.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Vote & Accept</h3>
+                            <p>Vote on helpful answers and accept the best solution to help future visitors with similar questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Community Guidelines</h2>
+                <ul class="guidelines-list">
+                    <li><strong>Be respectful:</strong> Treat all community members with kindness and respect</li>
+                    <li><strong>Stay on topic:</strong> Keep discussions relevant to the question being asked</li>
+                    <li><strong>Provide quality answers:</strong> Give detailed, helpful responses with examples when possible</li>
+                    <li><strong>Search before asking:</strong> Check if your question has already been answered</li>
+                    <li><strong>Use proper tags:</strong> Tag your questions appropriately to help others find them</li>
+                    <li><strong>Accept helpful answers:</strong> Mark the best answer as accepted to help future visitors</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Join Our Community</h2>
+                <p>Ready to start asking questions and sharing knowledge? Join thousands of developers who are already part of the StackIt community.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('signUpBtn').click()">Sign Up Now</button>
+                    <a href="{% url 'home' %}" class="btn-secondary">Browse Questions</a>
+                </div>
+            </div>
+        </div>
+    </main>
+  <footer style="background: #f9f9f9; padding: 3rem 2rem; border-top: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    
+    <!-- Left: Logo + Social -->
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡ StackIt</h2>
+      <p style="color: #666; margin-bottom: 1rem;">Simplifying Q&A for everyone.</p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+        
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Legal</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 2rem; color: #aaa; font-size: 0.85rem;">
+    © 2025 StackIt. All rights reserved.
+  </div>
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

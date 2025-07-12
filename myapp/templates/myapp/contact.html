@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - StackIt Q&A Platform</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="{% url 'home' %}" class="brand-link">StackIt</a></h1>
+                <span class="tagline">A Minimal Q&A Forum Platform</span>
+            </div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-link active">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count" id="notificationCount">3</span>
+                </div>
+                <div class="user-menu">
+                    <button class="btn-primary" id="askQuestionBtn">Ask Question</button>
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-item" id="signUpBtn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </div>
+                            <div class="dropdown-item" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Login</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-content">
+            <div class="page-header">
+                <h1>Contact Us</h1>
+                <p class="page-subtitle">Get in touch with the StackIt team</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions, suggestions, or need help? We'd love to hear from you. Choose the best way to reach out to our team.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Support</h3>
+                                <p>support@stackit.com</p>
+                                <small>We typically respond within 24 hours</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Community Forum</h3>
+                                <p>Ask questions in our community</p>
+                                <small>Get help from other users</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-bug"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Report Issues</h3>
+                                <p>bugs@stackit.com</p>
+                                <small>Help us improve the platform</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Name</label>
+                                <input type="text" id="contactName" placeholder="Your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email</label>
+                                <input type="email" id="contactEmail" placeholder="Your email address" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subject</label>
+                            <select id="contactSubject" required>
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="account">Account Issues</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>How do I create an account?</h3>
+                        <p>Click on the user icon in the top right corner and select "Sign Up" to create your free account.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I ask a question?</h3>
+                        <p>Once logged in, click the "Ask Question" button and fill out the form with your question details and relevant tags.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How does the voting system work?</h3>
+                        <p>Users can upvote helpful questions and answers, or downvote content that isn't useful. This helps surface the best content.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Can I edit my questions or answers?</h3>
+                        <p>Yes, you can edit your own questions and answers at any time to improve clarity or add additional information.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What should I do if I see inappropriate content?</h3>
+                        <p>Please report any inappropriate content using the report feature or contact our moderation team directly.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I get notifications?</h3>
+                        <p>You'll automatically receive notifications when someone answers your questions or mentions you in comments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+      <footer style="background: #f9f9f9; padding: 3rem 2rem; border-top: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+    
+    <!-- Left: Logo + Social -->
+    <div style="flex: 1; min-width: 220px;">
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡ StackIt</h2>
+      <p style="color: #666; margin-bottom: 1rem;">Simplifying Q&A for everyone.</p>
+      <div style="display: flex; gap: 1rem;">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Company</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'contact' %}">Contact us</a></li>
+        
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 160px;">
+      <h4 style="margin-bottom: 1rem;">Legal</h4>
+      <ul style="list-style: none; padding: 0; color: #555;">
+        <li><a href="{% url 'terms' %}">Terms of Service</a></li>
+        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+        <li><a href="{% url 'cookies' %}">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div style="text-align: center; margin-top: 2rem; color: #aaa; font-size: 0.85rem;">
+    © 2025 StackIt. All rights reserved.
+  </div>
+</footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

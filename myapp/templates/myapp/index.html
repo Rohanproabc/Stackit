@@ -79,15 +79,6 @@
                         </div>
                         <div class="question-tags" id="questionTags"></div>
                         <div class="question-description" id="questionDescription"></div>
-                        <div class="question-actions">
-                            <button class="vote-btn upvote" data-type="up">
-                                <i class="fas fa-arrow-up"></i>
-                                <span class="vote-count">5</span>
-                            </button>
-                            <button class="vote-btn downvote" data-type="down">
-                                <i class="fas fa-arrow-down"></i>
-                            </button>
-                        </div>
                     </div>
 
                     <!-- Answers Section -->
@@ -100,13 +91,73 @@
                             <h5>Your Answer</h5>
                             <div class="rich-editor" id="answerEditor">
                                 <div class="editor-toolbar">
-                                    <button class="editor-btn" data-command="bold"><i class="fas fa-bold"></i></button>
-                                    <button class="editor-btn" data-command="italic"><i class="fas fa-italic"></i></button>
-                                    <button class="editor-btn" data-command="strikethrough"><i class="fas fa-strikethrough"></i></button>
-                                    <button class="editor-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
-                                    <button class="editor-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
-                                    <button class="editor-btn" data-command="createLink"><i class="fas fa-link"></i></button>
-                                    <button class="editor-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                                    <!-- Text Formatting -->
+                                    <button class="editor-btn" data-command="bold" title="Bold">
+                                        <i class="fas fa-bold"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="italic" title="Italic">
+                                        <i class="fas fa-italic"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="strikethrough" title="Strikethrough">
+                                        <i class="fas fa-strikethrough"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Text Alignment -->
+                                    <button class="editor-btn" data-command="justifyLeft" title="Align Left">
+                                        <i class="fas fa-align-left"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="justifyCenter" title="Align Center">
+                                        <i class="fas fa-align-center"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="justifyRight" title="Align Right">
+                                        <i class="fas fa-align-right"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Lists -->
+                                    <button class="editor-btn" data-command="insertOrderedList" title="Numbered List">
+                                        <i class="fas fa-list-ol"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="insertUnorderedList" title="Bullet List">
+                                        <i class="fas fa-list-ul"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Links and Media -->
+                                    <button class="editor-btn" data-command="createLink" title="Insert Link">
+                                        <i class="fas fa-link"></i>
+                                    </button>
+                                    <button class="editor-btn" data-command="insertImage" title="Insert Image">
+                                        <i class="fas fa-image"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Emoji Support -->
+                                    <button class="editor-btn emoji-btn" title="Insert Emoji">
+                                        <i class="fas fa-smile"></i>
+                                    </button>
+                                    
+                                    <!-- Emoji Picker Dropdown -->
+                                    <div class="emoji-picker">
+                                        <div class="emoji-categories">
+                                            <button class="emoji-category active" data-category="smileys">😀</button>
+                                            <button class="emoji-category" data-category="people">👋</button>
+                                            <button class="emoji-category" data-category="nature">🌟</button>
+                                            <button class="emoji-category" data-category="food">🍕</button>
+                                            <button class="emoji-category" data-category="activities">⚽</button>
+                                            <button class="emoji-category" data-category="travel">🚗</button>
+                                            <button class="emoji-category" data-category="objects">💻</button>
+                                            <button class="emoji-category" data-category="symbols">❤️</button>
+                                        </div>
+                                        <div class="emoji-grid">
+                                            <!-- Emojis will be populated here -->
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="editor-content" contenteditable="true" placeholder="Write your answer here..."></div>
                             </div>
@@ -135,13 +186,73 @@
                             <label for="questionDescriptionInput">Description</label>
                             <div class="rich-editor" id="questionEditor">
                                 <div class="editor-toolbar">
-                                    <button type="button" class="editor-btn" data-command="bold"><i class="fas fa-bold"></i></button>
-                                    <button type="button" class="editor-btn" data-command="italic"><i class="fas fa-italic"></i></button>
-                                    <button type="button" class="editor-btn" data-command="strikethrough"><i class="fas fa-strikethrough"></i></button>
-                                    <button type="button" class="editor-btn" data-command="insertOrderedList"><i class="fas fa-list-ol"></i></button>
-                                    <button type="button" class="editor-btn" data-command="insertUnorderedList"><i class="fas fa-list-ul"></i></button>
-                                    <button type="button" class="editor-btn" data-command="createLink"><i class="fas fa-link"></i></button>
-                                    <button type="button" class="editor-btn" data-command="insertImage"><i class="fas fa-image"></i></button>
+                                    <!-- Text Formatting -->
+                                    <button type="button" class="editor-btn" data-command="bold" title="Bold">
+                                        <i class="fas fa-bold"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="italic" title="Italic">
+                                        <i class="fas fa-italic"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="strikethrough" title="Strikethrough">
+                                        <i class="fas fa-strikethrough"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Text Alignment -->
+                                    <button type="button" class="editor-btn" data-command="justifyLeft" title="Align Left">
+                                        <i class="fas fa-align-left"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="justifyCenter" title="Align Center">
+                                        <i class="fas fa-align-center"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="justifyRight" title="Align Right">
+                                        <i class="fas fa-align-right"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Lists -->
+                                    <button type="button" class="editor-btn" data-command="insertOrderedList" title="Numbered List">
+                                        <i class="fas fa-list-ol"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="insertUnorderedList" title="Bullet List">
+                                        <i class="fas fa-list-ul"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Links and Media -->
+                                    <button type="button" class="editor-btn" data-command="createLink" title="Insert Link">
+                                        <i class="fas fa-link"></i>
+                                    </button>
+                                    <button type="button" class="editor-btn" data-command="insertImage" title="Insert Image">
+                                        <i class="fas fa-image"></i>
+                                    </button>
+                                    
+                                    <div class="toolbar-separator"></div>
+                                    
+                                    <!-- Emoji Support -->
+                                    <button type="button" class="editor-btn emoji-btn" title="Insert Emoji">
+                                        <i class="fas fa-smile"></i>
+                                    </button>
+                                    
+                                    <!-- Emoji Picker Dropdown -->
+                                    <div class="emoji-picker">
+                                        <div class="emoji-categories">
+                                            <button class="emoji-category active" data-category="smileys">😀</button>
+                                            <button class="emoji-category" data-category="people">👋</button>
+                                            <button class="emoji-category" data-category="nature">🌟</button>
+                                            <button class="emoji-category" data-category="food">🍕</button>
+                                            <button class="emoji-category" data-category="activities">⚽</button>
+                                            <button class="emoji-category" data-category="travel">🚗</button>
+                                            <button class="emoji-category" data-category="objects">💻</button>
+                                            <button class="emoji-category" data-category="symbols">❤️</button>
+                                        </div>
+                                        <div class="emoji-grid">
+                                            <!-- Emojis will be populated here -->
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="editor-content" contenteditable="true" placeholder="Provide detailed description of your question..."></div>
                             </div>
